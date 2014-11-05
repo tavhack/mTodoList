@@ -13,6 +13,14 @@ class CreateListTasksTable extends Migration {
 	public function up()
 	{
 		//
+	    Schema::create('lists', function(Blueprint $table)
+	    {
+	        $table->increments('id');
+	    
+	        $table->string('title',100);
+	        $table->integer('delFlag');
+	        $table->timestamps();
+	    });
 	}
 
 	/**
@@ -22,7 +30,8 @@ class CreateListTasksTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		//drop
+	    Schema::drop('lists');
 	}
 
 }
